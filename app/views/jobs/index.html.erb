@@ -1,0 +1,9 @@
+<div>
+  <span>
+    Hello! You Can Register Jobs Here...
+  </span>
+  <%= form_with url: jobs_path, method: :post do |f| %>
+    <%= f.submit "Add Job" %>
+  <% end %>
+
+</div>

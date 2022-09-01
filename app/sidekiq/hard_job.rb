@@ -3,5 +3,6 @@ class HardJob
 
   def perform(*args)
     # Do something
+    p(*args)
   end
 end
