@@ -3,6 +3,9 @@
     Hello! You Can Register Jobs Here...
   </span>
   <%= form_with url: jobs_path, method: :post do |f| %>
+    <%= f.label :name, "Job Name" %>
+    <%= f.text_field :name %>
+    <%= f.datetime_local_field("datetime") %>
     <%= f.submit "Add Job" %>
   <% end %>
 

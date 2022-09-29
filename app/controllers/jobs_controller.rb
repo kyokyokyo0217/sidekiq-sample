@@ -1,11 +1,7 @@
 class JobsController < ApplicationController
-  def index
-    p 'hoge'
-  end
+  def index; end
 
   def create
-    p 'queueing job...'
-    HardJob.perform_async('bob', 5)
-    p 'queued!'
+    HardJob.perform_async(permitted_params[:job_name], Date.parse(permitted_params[:datetime]))
   end
 end
