@@ -2,6 +2,6 @@ class JobsController < ApplicationController
   def index; end
 
   def create
-    HardJob.perform_async(permitted_params[:job_name], Date.parse(permitted_params[:datetime]))
+    HardJob.perform_async(params[:job_name], Date.parse(params[:datetime]))
   end
 end
