@@ -1,0 +1,6 @@
+:timeout: 30
+:queues:
+  - [default, 1]
+development:
+  :concurrency: 2
+  :logfile: ./log/sidekiq.log
