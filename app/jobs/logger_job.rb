@@ -1,7 +1,7 @@
 class LoggerJob < ApplicationJob
   queue_as :default
 
-  def perform(params)
-    logger.info "Logger Job Performed! Name: #{params[:name]}"
+  def perform(job_name)
+    logger.info "Logger Job Performed! Name: #{job_name}"
   end
 end

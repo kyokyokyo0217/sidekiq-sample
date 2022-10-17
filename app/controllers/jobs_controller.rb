@@ -2,6 +2,6 @@ class JobsController < ApplicationController
   def index; end
 
   def create
-    LoggerJob.perform_now(params)
+    LoggerJob.set(wait_until: params[:datetime]).perform_later(params[:name])
   end
 end
