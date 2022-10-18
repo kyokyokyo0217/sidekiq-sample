@@ -8,5 +8,14 @@
     <%= f.datetime_local_field("datetime") %>
     <%= f.submit "Add Job" %>
   <% end %>
-
+  <div>
+    <%= @scheduled_jobs.each do |job| %>
+      <p>
+        <%= "Job Class: #{job.args[0]['job_class']}" %>
+        <%= "Job Name: #{job.args[0]['arguments']}" %>
+        <%= "Created At: #{job.created_at}" %>
+        <%= "Scheduled At: #{job.at}"%>
+      </p>
+    <% end %>
+  </div>
 </div>
