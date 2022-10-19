@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SampleJob</title>
+    <title>Sidekiq Samole</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Sidekiq Sample</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

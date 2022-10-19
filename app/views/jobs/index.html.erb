@@ -1,21 +1,33 @@
 <div>
-  <span>
+  <p class="fs-3 fw-bold">
     Hello! You Can Register Jobs Here...
-  </span>
+  </p>
+  <hr/>
   <%= form_with url: jobs_path, method: :post do |f| %>
     <%= f.label :name, "Job Name" %>
     <%= f.text_field :name %>
     <%= f.datetime_local_field("datetime") %>
-    <%= f.submit "Add Job" %>
+    <%= f.submit "Add Job", class: %w(btn btn-outline-primary) %>
   <% end %>
-  <div>
-    <%= @scheduled_jobs.each do |job| %>
-      <p>
-        <%= "Job Class: #{job.args[0]['job_class']}" %>
-        <%= "Job Name: #{job.args[0]['arguments']}" %>
-        <%= "Created At: #{job.created_at}" %>
-        <%= "Scheduled At: #{job.at}"%>
-      </p>
-    <% end %>
-  </div>
+  <hr/>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Job Class</th>
+        <th scope="col">Job Name</th>
+        <th scope="col">Scheduled At</th>
+        <th scope="col">Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= @scheduled_jobs.each do |job| %>
+        <tr>
+          <td><%= job.args[0]['job_class'] %></td>
+          <td><%= job.args[0]['arguments'] %></td>
+          <td><%= job.at %></td>
+          <td><%= job.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
