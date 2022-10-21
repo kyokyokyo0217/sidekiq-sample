@@ -10,6 +10,35 @@
     <%= f.submit "Add Job", class: %w(btn btn-outline-primary) %>
   <% end %>
   <hr/>
+  <div>
+    <p class="fs-5 fw-bold">
+      Histories for Past 10 Days
+    </p>
+    <table class="table">
+      <thead>
+        <tr>
+          <%= @histories_processed.each do |k, v| %>
+            <th><%= k %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Processed</th>
+          <%= @histories_processed.each do |k, v| %>
+            <td><%= v %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <th>Failed</th>
+          <%= @histories_failed.each do |k, v| %>
+            <td><%= v %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr/>
   <table class="table">
     <thead>
       <tr>

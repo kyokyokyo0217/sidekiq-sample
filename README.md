@@ -5,4 +5,6 @@
 $ docker-compose up
 # Start rails server
 $ bundle exec rails s
+# Start Sidekiq Server
+$ bundle exec sidekiq
 ```
