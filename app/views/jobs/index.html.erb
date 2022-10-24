@@ -17,7 +17,8 @@
     <table class="table">
       <thead>
         <tr>
-          <%= @histories_processed.each do |k, v| %>
+          <th>#</th>
+          <% @histories_processed.each_key do | k | %>
             <th><%= k %></th>
           <% end %>
         </tr>
@@ -25,13 +26,13 @@
       <tbody>
         <tr>
           <th>Processed</th>
-          <%= @histories_processed.each do |k, v| %>
+          <% @histories_processed.each_value do | v | %>
             <td><%= v %></td>
           <% end %>
         </tr>
         <tr>
           <th>Failed</th>
-          <%= @histories_failed.each do |k, v| %>
+          <% @histories_failed.each_value do | v | %>
             <td><%= v %></td>
           <% end %>
         </tr>
