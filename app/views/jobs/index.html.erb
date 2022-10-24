@@ -40,24 +40,29 @@
     </table>
   </div>
   <hr/>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Job Class</th>
-        <th scope="col">Job Name</th>
-        <th scope="col">Scheduled At</th>
-        <th scope="col">Created At</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%= @scheduled_jobs.each do |job| %>
+  <div>
+    <p class="fs-5 fw-bold">
+      Scheduled Jobs
+    </p>
+    <table class="table">
+      <thead>
         <tr>
-          <td><%= job.args[0]['job_class'] %></td>
-          <td><%= job.args[0]['arguments'] %></td>
-          <td><%= job.at %></td>
-          <td><%= job.created_at %></td>
+          <th scope="col">Job Class</th>
+          <th scope="col">Job Name</th>
+          <th scope="col">Scheduled At</th>
+          <th scope="col">Created At</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <%= @scheduled_jobs.each do |job| %>
+          <tr>
+            <td><%= job.args[0]['job_class'] %></td>
+            <td><%= job.args[0]['arguments'] %></td>
+            <td><%= job.at %></td>
+            <td><%= job.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
