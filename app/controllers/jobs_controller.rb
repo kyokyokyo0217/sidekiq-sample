@@ -2,6 +2,7 @@ class JobsController < ApplicationController
   DAYS_PREVIOUS = 10
 
   def index
+    @enqueued_jobs = Sidekiq::Queue.new
     @scheduled_jobs = Sidekiq::ScheduledSet.new
     histories = Sidekiq::Stats::History.new(DAYS_PREVIOUS)
     @histories_processed = histories.processed
@@ -9,7 +10,10 @@ class JobsController < ApplicationController
   end
 
   def create
-    # Add to Scheduled Queue
-    LoggerJob.set(wait_until: Time.parse(params[:datetime])).perform_later(params[:name])
+    if params[:name].present
+      LoggerJob.set(wait_until: Time.parse(params[:datetime])).perform_later(params[:name])
+    else
+      LoggerJob.perform_async(params[:name])
+    end
   end
 end

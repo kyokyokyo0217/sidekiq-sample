@@ -42,6 +42,33 @@
   <hr/>
   <div>
     <p class="fs-5 fw-bold">
+      Enqueued Jobs
+    </p>
+    <% if @enqueued_jobs.present? %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Job Class</th>
+            <th scope="col">Job Name</th>
+            <th scope="col">Job ID</th>
+            <th scope="col">Created At</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= @scheduled_jobs.each do |job| %>
+            <tr>
+              <td><%= job.args[0]['job_class'] %></td>
+              <td><%= job.args[0]['arguments'] %></td>
+              <td><%= job.args[0]['job_id'] %></td>
+              <td><%= job.created_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div>
+    <p class="fs-5 fw-bold">
       Scheduled Jobs
     </p>
     <table class="table">
@@ -49,6 +76,7 @@
         <tr>
           <th scope="col">Job Class</th>
           <th scope="col">Job Name</th>
+          <th scope="col">Job ID</th>
           <th scope="col">Scheduled At</th>
           <th scope="col">Created At</th>
         </tr>
@@ -58,6 +86,7 @@
           <tr>
             <td><%= job.args[0]['job_class'] %></td>
             <td><%= job.args[0]['arguments'] %></td>
+            <td><%= job.args[0]['job_id'] %></td>
             <td><%= job.at %></td>
             <td><%= job.created_at %></td>
           </tr>
