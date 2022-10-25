@@ -1,0 +1,30 @@
+<hr/>
+<div>
+  <p class="fs-5 fw-bold">
+    Histories for Past 10 Days
+  </p>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <% @histories_processed.each_key do | k | %>
+          <th><%= k %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Processed</th>
+        <% @histories_processed.each_value do | v | %>
+          <td><%= v %></td>
+        <% end %>
+      </tr>
+      <tr>
+        <th>Failed</th>
+        <% @histories_failed.each_value do | v | %>
+          <td><%= v %></td>
+        <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
