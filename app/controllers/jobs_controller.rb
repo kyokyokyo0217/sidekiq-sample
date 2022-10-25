@@ -10,10 +10,11 @@ class JobsController < ApplicationController
   end
 
   def create
-    if params[:name].present
+    if params[:datetime].present?
+      puts params[:name]
       LoggerJob.set(wait_until: Time.parse(params[:datetime])).perform_later(params[:name])
     else
-      LoggerJob.perform_async(params[:name])
+      LoggerJob.perform_later(params[:name])
     end
   end
 end
